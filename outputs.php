@@ -191,7 +191,8 @@ function dis_datefirst_get_single_to_group_booking($id, $time, $day, $month, $ye
 		$avail = '01:00';
 		
 		// now create each product as form group for adding to basket
-		$out .= '<form class="cart count-forms manual-mine-'.$count.' " action="'.get_site_url().'/cart/?add-to-cart" method="post" enctype="multipart/form-data">';
+		$out .= '<form class="cart count-forms manual-mine-'.$count.' " action="'.get_site_url().'/'.get_permalink( wc_get_page_id( 'cart' ) ) .'?add-to-cart" method="post" enctype="multipart/form-data">';
+
 	
 		$out .='<div itemscope="" itemtype="http://schema.org/Product" id="product-'.$id.'" class="single-product">';
 			
