@@ -80,36 +80,11 @@
 			                success: function(data2) { 
 				                $('#dis_wcb_datefirst_spinner').fadeOut();		
 				                 $('<div class="alert alert-success" style="clear:both;display:block"> Added to basket</div>').appendTo(form).fadeOut(3000);
-				                 window.location.href = (window.location.protocol + "//" + window.location.host + "/" +"/cart/");
-				                 
-				                // $('#dis_wcb_response').html('<div class="alert alert-warning" style="clear:both;display:block"><a href="/cart" class="btn"> Go to Cart</a></div>');
-				                 // or change to go to basket?
-				               
-				                
-				               //  
-				                  
-				                // now redirect OR LATER ADD now update the mini-basket
-				                
-				               /*  var updateMyCart = {
-								   'action': 'dis_wbc_datefirst_after_addtocart_function'
-								 };
-								 $.post(
-								   myAjax.ajaxurl, // The AJAX URL
-								   updateMyCart, // Send our PHP function
-								   function(response){
-									    // $('.woo-cart').html(response); // Repopulate the specific element with the new content
-									    console.log(response);
-									    if(response == 'refresh') {
-										    window.setTimeout(function(){location.reload()},2000);
-										}
-										if(response== 'cart') {
-											return 'window.location.href = (window.location.protocol + "//" + window.location.host + "/" +"/cart/");';
-										}
-									     
-								   }
-								 );
-								 */
-				            }
+				                 //now transition to cart
+				              	var newURL = $(form).attr("action")
+				              	
+							  	newURL = newURL.substring(0, newURL.indexOf('?'));
+							    window.location.href = (newURL);				            }
 			            });								  						        
 
 			    });
