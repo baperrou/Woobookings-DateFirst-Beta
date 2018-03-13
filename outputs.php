@@ -181,7 +181,9 @@ function dis_datefirst_get_single_to_group_booking($id, $time, $day, $month, $ye
 		$time_unit = $booking->duration_unit;
 		$max_time = $booking->max_duration;
 		//echo '<pre>';print_r($booking); echo '</pre>';
+		if (class_exists('Product_Addon_Display')) {
 		$addon = new Product_Addon_Display($id);
+		}
 	//	echo '<pre>';($addon->display());'</pre>';
 		if($count):$count=$count;else:$count=1;endif;
 		// need to find the limits put on the product such as days available
@@ -219,6 +221,7 @@ function dis_datefirst_get_single_to_group_booking($id, $time, $day, $month, $ye
 		// add product-addons if they exist
 		ob_start();$addon->display($id);$out .= ob_get_clean();
 		}
+
 		$out .='<fieldset class="wc-bookings-date-picker wc_bookings_field_start_date" style="border:none;">';
 		$out .= '<input type="number" value="'.$length.'" step="1" min="1" max="'.$max_time.'" size ="2" name="wc_bookings_field_duration" id="wc_bookings_field_duration" class="hidden">';
 

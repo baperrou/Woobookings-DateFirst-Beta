@@ -16,11 +16,13 @@
         return [ disableddates.indexOf(string) == -1, 'Closed-today' ]
     	},
       //  minDate: 1 ,
-        showOtherMonths: true,
         dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        firstDay: 0,
         altField: ".date_chosen",
 		altFormat: "d-M-yy",
         dateFormat: 'dd-mm-yy',
+         minDate: 1,
+
         onSelect: function(date) {
 	        var DisFirst = {}; 
 	       
@@ -84,7 +86,8 @@
 				              	var newURL = $(form).attr("action")
 				              	
 							  	newURL = newURL.substring(0, newURL.indexOf('?'));
-							    window.location.href = (newURL);				            }
+							    window.location.href = (newURL);				            
+							}
 			            });								  						        
 
 			    });
